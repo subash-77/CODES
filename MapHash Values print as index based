@@ -1,0 +1,27 @@
+import java.util.*;
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+        long n=sc.nextLong();
+        String bin=Long.toBinaryString(n);
+        System.out.print(bin);
+        Map<Character,Integer>list=new HashMap<Character,Integer>();
+        for(int i=0;i<bin.length();i++)
+        {
+            char c=bin.charAt(i);
+            if(list.containsKey(c))
+            {
+                list.put(c,list.get(c)+1);
+            }
+            else
+            {
+                list.put(c,1);
+            }
+        }
+        System.out.print(list);
+        int value =list.entrySet().stream().findFirst().get().getValue();
+        System.out.println("Value: " + value);
+	}
+
+}
