@@ -1,0 +1,51 @@
+Given a string s, return the longest 
+palindromic
+ 
+substring
+ in s.
+
+ 
+
+Example 1:
+
+Input: s = "babad"
+Output: "bab"
+Explanation: "aba" is also a valid answer.
+Example 2:
+
+Input: s = "cbbd"
+Output: "bb"
+
+CODE:
+import java.util.*;
+public class Main {
+    public static void main(String args[]) {
+        Scanner sc=new Scanner(System.in);
+        String s="babad";
+        int n=s.length();
+        int count=0;
+        String res="";
+        for(int i=0;i<n;i++)
+        {
+            for(int j=i;j<n;j++)
+            {
+                String str=s.substring(i,j+1);
+                StringBuilder sb=new StringBuilder(str);
+                sb.reverse();
+                //boolean res=str.equals(sb.toString());
+                //System.out.println(res+" "+str+" "+sb);
+                if(str.equals(sb.toString()))
+                {
+                   int c=str.length();
+                   if(c>count)
+                   {
+                       res="";
+                       res=res+str;
+                       count=c;
+                   }
+                }
+            }
+        }
+        System.out.print(res);
+    }
+}
